@@ -1,0 +1,15 @@
+{
+    "compilerOptions": {
+      "declaration": true,            // Generate declaration files
+      "declarationDir": "./dist",     // Output declarations to "dist"
+      "outDir": "./dist",             // Output compiled JS to "dist"
+      "strict": true,                 // Enable strict type-checking
+      "jsx": "react-jsx",                // Proper JSX handling
+      "moduleResolution": "node",     // Use Node.js module resolution
+      "esModuleInterop": true,        // Allow default imports from CommonJS
+      "skipLibCheck": true            // Skip type-checking library files
+    },
+    "include": ["src/**/*"],
+    "exclude": ["node_modules", "dist"]
+  }
+  
