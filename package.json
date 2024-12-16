@@ -10,44 +10,43 @@
         "README.md",
         "LICENSE"
     ],
-  "scripts": {
-  "build:ts": "tsc",              
-  "build:rollup": "rollup -c",    
-  "build": "npm run build:ts && npm run build:rollup",
-  "prepare": "npm run build"
-},
-   "keywords": [
-    "react",
-    "nextjs",
-    "google",
-    "analytics",
-    "google-analytics",
-    "frontend",
-    "open-source"
-  ],
+    "scripts": {
+        "build:ts": "tsc",
+        "build:rollup": "rollup -c",
+        "build": "npm run build:ts && npm run build:rollup",
+        "prepare": "npm run build"
+    },
+    "keywords": [
+        "react",
+        "nextjs",
+        "google",
+        "analytics",
+        "google-analytics",
+        "frontend",
+        "open-source"
+    ],
     "author": "Varun Deva",
     "license": "MIT",
     "peerDependencies": {
-    "react": ">=16.8.0",       
-    "react-dom": ">=16.8.0",   
-    "next": ">=10.0.0"         
-},
-   "devDependencies": {
-    "@rollup/plugin-commonjs": "^24.0.0",
-    "@rollup/plugin-node-resolve": "^15.0.0",
-    "@rollup/plugin-typescript": "^10.0.0",
-    "@types/react": "^18.3.17",     
-    "@types/react-dom": "^18.3.5",   
-    "@types/next": "^12.2.0",      
-    "rollup": "^3.0.0",
-    "rollup-plugin-terser": "^7.0.2",
-    "typescript": "^5.0.0"
-},
-"repository": {
-    "type": "git",
-    "url": "https://github.com/varundeva/react-next-google-tools.git"
-  },
-  "bugs": {
-    "url": "https://github.com/yourusername/react-next-google-tools/issues"
-  }
+        "next": ">=12.0.0",
+        "react": ">=16.8.0",
+        "react-dom": ">=16.8.0"
+    },
+    "devDependencies": {
+        "@rollup/plugin-commonjs": "^24.0.0",
+        "@rollup/plugin-node-resolve": "^15.0.0",
+        "@rollup/plugin-terser": "^0.4.4",
+        "@rollup/plugin-typescript": "^10.0.0",
+        "@types/react": "^18.3.17",
+        "@types/react-dom": "^18.3.5",
+        "rollup": "^3.0.0",
+        "typescript": "^5.0.0"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/varundeva/react-next-google-tools.git"
+    },
+    "bugs": {
+        "url": "https://github.com/yourusername/react-next-google-tools/issues"
+    }
 }
