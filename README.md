@@ -5,7 +5,8 @@ A lightweight, easy-to-use library for integrating Google Analytics into both **
 
 ## ✨ Features
 
-- **Universal Support:** Works seamlessly with **Next.js** and standard **React** projects.
+- **Universal Support:** Works seamlessly with **Next.js** (App Router & Pages Router) and standard **React** projects.
+- **Automatic Route Tracking:** Automatically tracks client-side navigation in both Next.js and React applications.
 - **Simple Integration:** Initialize Google Analytics with a single component.
 - **Zero Config Bloat:** Just pass your Measurement ID. No extensive setup required.
 - **TypeScript Ready:** Comes with type definitions for a smooth developer experience.
@@ -14,23 +15,56 @@ A lightweight, easy-to-use library for integrating Google Analytics into both **
 
 ### Installation
 
-`npm install react-next-google-tools`
-or
-`yarn add react-next-google-tools`
-
-### Usage with Next.js
-
-To integrate with Next.js, simply add the component to your `_app.tsx` or `_app.js` file. Ensure you’re using the `GoogleAnalytics` component inside your main layout or `_app` file, so it initializes across all pages.
 ```bash
-// pages/_app.tsx
-import React from 'react';
+npm install react-next-google-tools
+# or
+yarn add react-next-google-tools
+# or
+pnpm add react-next-google-tools
+```
+
+### Usage with Next.js (App Router) - Recommended
+
+For Next.js 13+ with the App Router, add the component to your root `layout.tsx`:
+
+```tsx
+// app/layout.tsx
 import { GoogleAnalytics } from 'react-next-google-tools';
 
-function MyApp({ Component, pageProps }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <html lang="en">
+      <body>
+        {process.env.NODE_ENV === 'production' && (
+          <GoogleAnalytics id="G-XXXXXXXXXX" isNextJs={true} />
+        )}
+        {children}
+      </body>
+    </html>
+  );
+}
+```
+
+**Note:** Replace `G-XXXXXXXXXX` with your actual Google Analytics Measurement ID.
+
+### Usage with Next.js (Pages Router)
+
+For Next.js with the Pages Router, add the component to your `_app.tsx`:
+
+```tsx
+// pages/_app.tsx
+import type { AppProps } from 'next/app';
+import { GoogleAnalytics } from 'react-next-google-tools';
+
+function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       {process.env.NODE_ENV === 'production' && (
-        <GoogleAnalytics id="G-XXXXXXXXXX" isNextJs />
+        <GoogleAnalytics id="G-XXXXXXXXXX" isNextJs={true} />
       )}
       <Component {...pageProps} />
     </>
@@ -39,6 +73,7 @@ function MyApp({ Component, pageProps }) {
 
 export default MyApp;
 ```
+
 **Note:** Replace `G-XXXXXXXXXX` with your actual Google Analytics Measurement ID.
 
 ### Usage with React
